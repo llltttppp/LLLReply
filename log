@@ -1,0 +1,44 @@
+Bottle v0.12.19 server starting up (using AutoServer())...
+Listening on http://192.168.0.201:80/
+Hit Ctrl-C to quit.
+
+WSGI application error
+Traceback (most recent call last):
+  File "/usr/lib/python3/dist-packages/twisted/python/threadpool.py", line 266, in <lambda>
+    inContext.theWork = lambda: context.call(ctx, func, *args, **kw)
+  File "/usr/lib/python3/dist-packages/twisted/python/context.py", line 122, in callWithContext
+    return self.currentContext().callWithContext(ctx, func, *args, **kw)
+  File "/usr/lib/python3/dist-packages/twisted/python/context.py", line 87, in callWithContext
+    self.contexts.pop()
+  File "/usr/lib/python3/dist-packages/twisted/web/wsgi.py", line 522, in run
+    self.started = True
+--- <exception caught here> ---
+  File "/usr/lib/python3/dist-packages/twisted/web/wsgi.py", line 500, in run
+    self.write(elem)
+  File "/usr/lib/python3/dist-packages/twisted/web/wsgi.py", line 455, in write
+    self.reactor, wsgiWrite, self.started)
+  File "/usr/lib/python3/dist-packages/twisted/internet/threads.py", line 122, in blockingCallFromThread
+    result.raiseException()
+  File "/usr/lib/python3/dist-packages/twisted/python/failure.py", line 385, in raiseException
+    raise self.value.with_traceback(self.tb)
+builtins.AttributeError: 'NoneType' object has no attribute 'writeHeaders'
+
+Unhandled Error
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.6/dist-packages/bottle.py", line 2989, in run
+    return sa(self.host, self.port, **self.options).run(handler)
+  File "/usr/local/lib/python3.6/dist-packages/bottle.py", line 2896, in run
+    reactor.run()
+  File "/usr/lib/python3/dist-packages/twisted/internet/base.py", line 1243, in run
+    self.mainLoop()
+  File "/usr/lib/python3/dist-packages/twisted/internet/base.py", line 1252, in mainLoop
+    self.runUntilCurrent()
+--- <exception caught here> ---
+  File "/usr/lib/python3/dist-packages/twisted/internet/base.py", line 851, in runUntilCurrent
+    f(*a, **kw)
+  File "/usr/lib/python3/dist-packages/twisted/web/wsgi.py", line 510, in wsgiError
+    self.request.loseConnection()
+  File "/usr/lib/python3/dist-packages/twisted/web/http.py", line 1474, in loseConnection
+    self.channel.loseConnection()
+builtins.AttributeError: 'NoneType' object has no attribute 'loseConnection'
+
